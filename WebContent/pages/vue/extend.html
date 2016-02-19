@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../../js/vue/vue.js"></script>
+</head>
+<body>
+
+<div id="mount-point"></div>
+
+<script>
+var Profile = Vue.extend({
+	template: '<p>{{firstname}} {{lastname}} aka {{alias}}</p>' //必须有一个顶级元素标签,否则报错
+})
+var profile = new Profile({
+	data:{
+		firstname: 'Walter',
+		lastname: 'White',
+		alias: 'Heisenberg'
+	}
+})
+profile.$mount("#mount-point"); //将没有指定el的实例挂载到指定的元素上
+</script>
+
+</body>
+</html>
