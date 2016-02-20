@@ -11,8 +11,8 @@
 
 <script>
 var Profile = Vue.extend({
-	template: '<p>{{firstname}} {{lastname}} aka {{alias}}</p>' //必须有一个顶级元素标签,否则报错
-})
+	template: '<p>{{firstname}} {{lastname}} aka {{alias}}</p>' //必须有一个顶级元素标签(整个template最外层用一个标签包围),否则报错
+}) //创建基础Vue构造器的子类,extend只能接收Object类型参数
 var profile = new Profile({
 	data:{
 		firstname: 'Walter',

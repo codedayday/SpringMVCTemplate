@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../../js/vue/vue.js"></script>
+</head>
+<body>
+<div>比较页面中显示的数据和通过console在控制台访问计算属性</div>
+<div id="mount-point">{{example}}-{{example2}}-{{time}}</div>
+
+<script>
+var vm = new Vue({
+	el: '#mount-point',
+	data: {
+		msg: "test",
+		time: Date.now()
+	},
+	computed: {
+		example: function(){ //默认计算属性会有一个缓存,如果响应以来msg不变化,缓存不会更新,取得exaple的时候也是从缓存中取
+			console.log("example1");
+			return Date.now() + this.msg;
+		},
+		example2: {
+			cache: false, //禁止使用缓存,每次获取example2都通过getter方法取得;数据绑定{{example2}}依然依赖驱动,不会一直更新DOM,只是在JavaScript中
+			//访问的时候可以看到变化;Date.now() 不是 响应依赖，因为它跟 Vue 的数据观察系统无关
+			get: function(){
+				console.log("example2");
+				return Date.now() + this.msg;
+			}
+		}
+	}
+})
+</script>
+
+</body>
+</html>

@@ -41,5 +41,10 @@
 			<artifactId>org.springframework.test</artifactId>
 			<version>3.2.0.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>com.ibeetl</groupId>
+			<artifactId>beetlsql</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 </project>
