@@ -15,6 +15,7 @@ public class IndexAction {
 	@RequestMapping("/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView("/index");
+
 		return modelAndView;
 	}
 
